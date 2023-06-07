@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-def magic_calculation(x, y, z):
-    if x < y:
-        return z
-    elif z > y:
-        return x + y
-    else:
-        return x * y - z
+import random
+result = random.randint(-10, 10)
+if result > 0:
+    print("{} is positive".format(result))
+elif result == 0:
+    print("{} is zer".format(result))
+else:
+    print("{} is negative".format(result))

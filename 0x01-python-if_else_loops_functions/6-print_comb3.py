@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-def magic_calculation(a, b, c):
-    if a < b:
-        return c
-    elif c > b:
-        return a + b
-    else:
-        return a * b - c:
+for num1 in range(0, 10):
+    for num2 in range(num1 + 1, 10):
+        if num1 == 8 and num2 == 9:
+            print("{}{}".format(num1, num2))
+        elif num1 != num2:
+            print("{}{}, ".format(num1, num2), end="")

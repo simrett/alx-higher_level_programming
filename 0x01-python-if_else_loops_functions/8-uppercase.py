@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-def print_last_digit(number):
-    my_num = abs(number) % 10
-    print("{}".format(my_num), end="")
-    return my_num
+def uppercase(string):
+    for index in range(len(string)):
+        character = ord(string[index])
+        if character >= 97 and character <= 122:
+            character = character - 32
+        print("{}".format(chr(character)), end="")
+    print()        

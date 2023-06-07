@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-for i in range(122, 96, -1):
-    if i % 2 == 0:
-        n = chr(i)
+for c in range(122, 96, -1):
+    if not(c % 2 == 0):
+        print("{}".format(chr(c).upper()), end="")
     else:
-        n = chr(i-32)
-    print("{}".format(n), end="")        
+        print("{}".format(chr(c)), end="")        

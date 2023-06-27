@@ -2,6 +2,6 @@
 
 class square:
     """
-    an empty class Square
+    This class represents a square.
     """
     pass

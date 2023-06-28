@@ -5,57 +5,46 @@
 
 class Square:
     """
-    class square that has attributes:
-        size
-    some attributes are protected from input.
+    This class represents a square.
     """
+
     def __init__(self, size=0):
         """
-        initialization function for our square clasee
+        Initializes a Square object with a specified size.
         """
-        if self.__validate_size(size):
-            self.__size = size
+        self.__size = 0
+        self.size = size
 
     @property
     def size(self):
         """
-        getter for the size property
+        Retrieves the size of the square.
         """
         return self.__size
 
     @size.setter
     def size(self, value):
         """
-        setter for the size property
+        Sets the size of the square.
         """
-        if self.__validate_size(value):
-            self.__size = value
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        if value < 0:
+            raise ValueError("size must be >= 0")
+        self.__size = value
 
     def area(self):
         """
-        calculates the area of the square
+        Calculates the area of the square.
         """
         return self.__size ** 2
 
     def my_print(self):
         """
-        prints the square using '#' characters
+        Prints the square using '#'.
         """
-        i = 0
-        for i in range(0, self.__size):
-            j = 0
-            for j in range(0, self.__size):
-                print("#", end='')
+        if self.__size == 0:
             print()
-
-    def __validate_size(self, size):
-        """
-        validates the size, checking for errors
-        """
-        if type(size) != int:
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
         else:
-            return True
-        return False
+            for _ in range(self.__size):
+                print("#" * self.__size)

@@ -1,27 +1,37 @@
-Tests for 5-text_indentation.py
--------------------------------
+By using the "text_indentation" function
+----------------------------------------
 
->>> text_ind = __import__('5-text_indentation').text_indentation
->>> text_ind("hello:world?")
-hello:
-<BLANKLINE>
-world?
-<BLANKLINE>
+Import the function from the module:
+        >>> text_indentation = __import__("5-text_indentation").text_indentation
 
->>> text_ind("hello:::world?")
-hello:
-<BLANKLINE>
-:
-<BLANKLINE>
-:
-<BLANKLINE>
-world?
-<BLANKLINE>
+Check for module documentation:
+        >>> mod = __import__("5-text_indentation").__doc__
+        >>> len(mod) > 1
+        True
 
->>> text_ind(42)
-Traceback (most recent call last):
-	...
-TypeError: text must be a string
+Check for function documentation:
+        >>> fun = __import__("5-text_indentation").text_indentation.__doc__
+        >>> len(fun) > 1
+        True
 
->>> text_ind("hello")
-hello
+Test for basic input
+        >>> text_indentation("The quick. brown fox: jumps over? the lazy dog")
+	The quick.
+	<BLANKLINE>
+    	brown fox:
+	<BLANKLINE>
+    	jumps over?
+	<BLANKLINE>
+    	the lazy dog
+
+Test for wrong type
+        >>> text_indentation(123456789)
+        Traceback (most recent call last):
+        ...
+        TypeError: text must be a string
+
+test for Empty input
+        >>> text_indentation()
+        Traceback (most recent call last):
+        ...
+        TypeError: text_indentation() missing 1 required positional argument: 'text'

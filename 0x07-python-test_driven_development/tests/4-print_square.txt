@@ -1,5 +1,5 @@
-Tests 4-print_square.py
------------------------
+By using the "print_square" function
+-----------------------------------
 
 Import the function from the module:
         >>> print_square = __import__("4-print_square").print_square

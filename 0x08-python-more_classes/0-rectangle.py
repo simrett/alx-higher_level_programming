@@ -3,6 +3,5 @@
 
 
 class Rectangle():
-    """empty rectangle class for later use
-    """
+    """Represents a rectangle."""
     pass

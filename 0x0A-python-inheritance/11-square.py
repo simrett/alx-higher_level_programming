@@ -1,18 +1,23 @@
 #!/usr/bin/python3
 """ Import the Basegeometry module """
 
-Rectangle = __import__('9-rectangle').Rectangle
 
-""" A derived class that inherits from Basegeometry class """
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
-
-    """ inistantiates with size """
+    """square shape class, super class is BaseGeometry, then Rectangle
+    """
     def __init__(self, size):
-        self.integer_validator("size", size)
+        """instantiation method for class
+        """
         super().__init__(size, size)
+        self.integer_validator("size", size)
         self.__size = size
 
     def __str__(self):
-        return "[Sqaure] {}/{}".format(self.__size, self.__size)
+        """overide magic str method for class
+        """
+        string = "[Square] " + str(self.__size) + '/'
+        string += str(self.__size)
+        return string

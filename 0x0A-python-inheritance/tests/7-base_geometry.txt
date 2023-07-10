@@ -1,26 +1,69 @@
-============================
-TESTS FOR 7-base_geometry.py
-============================
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+By using the "integer_validator function
+========================================
+
+
+Import the function from base_geometry module
+
+>>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
 >>> bg = BaseGeometry()
->>> bg.integer_validator("custom_int", 12)
 
->>> bg.integer_validator("none", None)
-Traceback (most recent call last):
-	...
-TypeError: none must be an integer
+check for module docstring:
+>>> md = __import__("7-base_geometry").__doc__
+>>> len(md) > 1
+True
 
->>> bg.integer_validator("neg", -40)
+check for string inputs:
+>>> bg.integer_validator("name", "John")
 Traceback (most recent call last):
-	...
-ValueError: neg must be greater than 0
+...
+TypeError: name must be an integer
 
->>> bg.integer_validator("float", 4.5)
-Traceback (most recent call last):
+check for 0 age input
+	>>> bg.integer_validator("age", 0)
+	Traceback (most recent call last):
 	...
-TypeError: float must be an integer
+	ValueError: age must be greater than 0
 
->>> bg.integer_validator("zero", 0)
-Traceback (most recent call last):
+check for negative input
+	>>> bg.integer_validator("distance", -4)
+	Traceback (most recent call last):
 	...
-ValueError: zero must be greater than 0
+	ValueError: distance must be greater than 0
+
+check for floating number
+	>>> bg.integer_validator("age", 5.1)
+	Traceback (most recent call last):
+	...
+	TypeError: age must be an integer
+
+check for None input
+	>>> bg.integer_validator("input", None)
+	Traceback (most recent call last):
+	...
+	TypeError: input must be an integer
+
+check for list input
+	>>> bg.integer_validator("list", [1, 2, 3, 4])
+	Traceback (most recent call last):
+	...
+	TypeError: list must be an integer
+
+check for no inputs
+	>>> bg.integer_validator()
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+check for one input only
+	>>> bg.integer_validator("name")
+	Traceback (most recent call last):
+	...
+	TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+check for area instance method
+	>>> bg.area()
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+          bg.area()
+	...
+	Exception: area() is not implemented

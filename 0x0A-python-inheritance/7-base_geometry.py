@@ -1,20 +1,17 @@
 #!/usr/bin/python3
-""" Defines a class BaseGeometry  """
+"""Defines a function that adds attributes to objects."""
 
 
-class BaseGeometry:
-    """ Defines an instance method area """
+def add_attribute(obj, att, value):
+    """Add a new attribute to an object if possible.
 
-    def area(self):
-        raise Exception("area() is not implemented")
-
-    """ public instance method integer_validator """
-    def integer_validator(self, name, value):
-
-        """ Raise a typeerror if value is not an integer """
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-
-        """ Raise a valueerror if value is less or equal to 0 """
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+    Args:
+        obj (any): The object to add an attribute to.
+        att (str): The name of the attribute to add to obj.
+        value (any): The value of att.
+    Raises:
+        TypeError: If the attribute cannot be added.
+    """
+    if not hasattr(obj, "__dict__"):
+        raise TypeError("can't add new attribute")
+    setattr(obj, att, value)

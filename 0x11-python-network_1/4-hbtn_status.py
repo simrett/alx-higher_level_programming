@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+
 """
-Send request and display the X-Request-Id value
+Sends request and display the X-Request-Id value
 """
 import requests
 

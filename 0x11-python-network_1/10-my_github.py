@@ -1,13 +1,22 @@
 #!/usr/bin/python3
-""" get user commit and name from github """
-
-import sys
-from requests
-from requests.auth import HTTPBasicAuth
-
-if __name__ == '__main__':
-    url = 'https://api.github.com/users'
-    user = sys.argv[1]
-    passwrd = sys.argv[2]
-    res = requests.get(url, auth=HTTPBasicAuth(user, passwrd))
-    print(res.json().get('id'))
+"""script for posting data to star wars api
+"""
+if __name__ == "__main__":
+    import requests
+    from requests.auth import HTTPBasicAuth
+    import sys
+    url = "https://api.github.com/"
+    user_url = url + "user"
+    username = sys.argv[1]
+    password = sys.argv[2]
+    response = requests.get(user_url,
+                            auth=HTTPBasicAuth(username,
+                                               password))
+    if response.status_code == requests.codes.ok and len(response.text) > 0:
+        try:
+            my_obj = response.json()
+            print(my_obj.get('id'))
+        except ValueError as invalid_json:
+            print('Not a valid JSON')
+    else:
+        print(None)
